@@ -30,6 +30,7 @@ export default function ContactForm({ copy }: { copy: Copy }) {
       name: String(fd.get("name") || "").trim(),
       email: String(fd.get("email") || "").trim(),
       message: String(fd.get("message") || "").trim(),
+      company: String(fd.get("company") || "").trim(), // ✅ honeypot skickas
     };
 
     try {
@@ -45,6 +46,7 @@ export default function ContactForm({ copy }: { copy: Copy }) {
         return;
       }
 
+      // Visa feltext om API skickar det, annars generiskt
       let raw = "";
       try {
         raw = await res.text();
@@ -62,6 +64,16 @@ export default function ContactForm({ copy }: { copy: Copy }) {
 
   return (
     <form ref={formRef} onSubmit={onSubmit} className="mt-10 max-w-xl space-y-4">
+      {/* Honeypot (osynligt fält mot bots) */}
+      <input
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="hidden"
+      />
+
       <input
         name="name"
         placeholder={copy.name}
@@ -93,13 +105,9 @@ export default function ContactForm({ copy }: { copy: Copy }) {
         {status === "sending" ? copy.sending : copy.send}
       </button>
 
-      {status === "sent" && (
-        <p className="text-sm text-green-800">{copy.sent}</p>
-      )}
+      {status === "sent" && <p className="text-sm text-green-800">{copy.sent}</p>}
 
-      {status === "error" && (
-        <p className="text-sm text-red-700">{errorMsg || copy.error}</p>
-      )}
+      {status === "error" && <p className="text-sm text-red-700">{errorMsg || copy.error}</p>}
     </form>
   );
 }
