@@ -155,16 +155,18 @@ export const dict: Record<Locale, typeof base> = {
       request: "Be om offert",
     },
     contact: {
-      ...base.contact,
-      title: "Be om offert",
-      intro:
-        "Berätta datum, intressen och tempo — så återkommer vi med upplägg och pris.",
-      name: "Ditt namn",
-      email: "E-post",
-      send: "Skicka förfrågan",
-      sending: "Skickar...",
-      sent: "Tack! Vi återkommer snart.",
-    },
+  ...base.contact,
+  title: "Be om offert",
+  intro:
+    "Berätta datum, intressen och tempo — så återkommer vi med upplägg och pris.",
+  name: "Ditt namn",
+  email: "E-post",
+  message:
+    "Datum, gruppstorlek, intressen (fåglar / natur / foto) och önskat tempo…",
+  send: "Skicka förfrågan",
+  sending: "Skickar...",
+  sent: "Tack! Vi återkommer snart.",
+},
   },
   si: base,
   da: base,
