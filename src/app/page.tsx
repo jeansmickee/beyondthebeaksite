@@ -54,7 +54,7 @@ export default function Home() {
           <div className="rounded-3xl border border-black/10 bg-white/30 p-6">
             <div className="aspect-[4/3] w-full rounded-2xl bg-black/10" />
             <p className="mt-4 text-sm opacity-75">
-              Replace this with a hero photo (bird / forest / misty landscape).
+              Hej.
             </p>
           </div>
         </div>

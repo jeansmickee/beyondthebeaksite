@@ -81,7 +81,7 @@ export default async function Home({
           <div className="rounded-3xl border border-black/10 bg-white/30 p-3">
 			<div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
 				<Image
-					src="/hero/peacock.jpg"   // byt till /hero/peacock.jpg om du vill
+					src="/hero/peacock.jpg"
 					alt="Bird in Sri Lanka"
 					fill
 					priority
