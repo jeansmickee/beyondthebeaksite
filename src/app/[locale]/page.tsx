@@ -24,14 +24,14 @@ export default async function Home({
             </p>
 
             <div className="mt-7 text-[#2F3E1F]">
-              <h1 className="font-serif uppercase leading-[0.92]">
-                <span className="block tracking-[0.02em] text-[clamp(44px,7vw,76px)]">
-                  Beyond
-                </span>
-                <span className="block mt-2 tracking-[0.02em] text-[clamp(38px,6vw,64px)]">
-                  The Beak
-                </span>
-              </h1>
+              <h1 className="font-serif uppercase leading-[0.95] break-words">
+				<span className="block tracking-[0.02em] text-[clamp(36px,8vw,64px)]">
+					Beyond
+				</span>
+				<span className="block mt-2 tracking-[0.02em] text-[clamp(32px,7vw,56px)]">
+				The Beak
+				</span>
+</h1>
 
               <p className="mt-2 font-serif text-[16px] sm:text-[18px] opacity-75">
                 Journeys for the curious and kind.
