@@ -15,7 +15,7 @@ export default async function Home({
 
   return (
     <main>
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-16 md:py-28 min-h-[100svh]">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 py-12 overflow-x-hidden">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           {/* Text */}
           <div className="text-center lg:text-left">
