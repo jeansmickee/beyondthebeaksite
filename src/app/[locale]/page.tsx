@@ -9,63 +9,57 @@ export default async function Home({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-
   if (!isLocale(locale)) return notFound();
 
   const copy = t(locale as Locale);
 
   return (
     <main>
-      <section className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-        <div className="grid gap-12 md:grid-cols-2 md:items-center">
-          <div>
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 py-14 sm:py-20 md:py-28 min-h-[100svh]">
+        <div className="grid gap-10 lg:gap-12 md:grid-cols-2 md:items-center">
+          <div className="text-center md:text-left">
             <p className="text-xs uppercase tracking-[0.25em] opacity-60">
-				{copy.home.metaLine}
-			</p>
+              {copy.home.metaLine}
+            </p>
 
-            <div className="mt-8 text-[#2F3E1F] text-center md:text-left">
+            <div className="mt-7 text-[#2F3E1F]">
+              <h1 className="font-serif uppercase leading-[0.95]">
+                <span className="block tracking-[0.02em] text-[clamp(44px,7vw,76px)]">
+                  Beyond
+                </span>
+                <span className="block mt-2 tracking-[0.02em] text-[clamp(38px,6vw,64px)]">
+                  The Beak
+                </span>
+              </h1>
 
-  <div className="inline-block text-center">
-    <h1 className="font-serif uppercase leading-[0.95]">
+              <p className="mt-2 font-serif text-[16px] sm:text-[18px] opacity-75">
+                Journeys for the curious and kind.
+              </p>
+            </div>
 
-      <span className="block text-[52px] md:text-[76px] tracking-[0.02em]">
-        Beyond
-      </span>
+            <p className="font-serif mt-6 text-[16px] leading-7 sm:text-[17px] sm:leading-7 opacity-80 max-w-xl mx-auto md:mx-0">
+              {copy.home.intro}
+            </p>
 
-      <span className="block mt-2 text-[44px] md:text-[64px] tracking-[0.02em]">
-        The Beak
-      </span>
-
-    </h1>
-
-    <p className="mt-1 font-serif text-[16px] md:text-[18px] opacity-75">
-      Journeys for the curious and kind.
-    </p>
-  </div>
-
-</div>
-
-            <p className="font-serif mt-7 text-[16px] leading-7 opacity-80 max-w-xl">
-				{copy.home.intro}
-			</p>
-
-            <div className="mt-10 flex flex-wrap gap-4">
+            {/* CTA: stora touch targets, full bredd på mobil */}
+            <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-xl mx-auto md:mx-0">
               <Link
                 href={`/${locale}/contact`}
-                className="rounded-full bg-[#3f4f36] px-7 py-3.5 text-white text-sm tracking-wide hover:opacity-90 transition shadow-sm"
+                className="inline-flex items-center justify-center rounded-full bg-[#3f4f36] px-7 py-4 text-white text-base tracking-wide hover:opacity-90 transition shadow-sm select-none touch-manipulation active:scale-[0.98]"
               >
                 {copy.home.cta1}
               </Link>
 
               <Link
                 href={`/${locale}/journeys`}
-                className="rounded-full border border-black/20 px-6 py-3.5 text-sm hover:bg-black/5 transition"
+                className="inline-flex items-center justify-center rounded-full border border-black/20 px-7 py-4 text-base hover:bg-black/5 transition select-none touch-manipulation active:scale-[0.98]"
               >
                 {copy.home.cta2}
               </Link>
             </div>
 
-            <div className="mt-12 grid grid-cols-3 gap-4 text-sm">
+            {/* Cards: inte 3 kolumner på mobil (blir för trångt) */}
+            <div className="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-sm max-w-xl mx-auto md:mx-0">
               {copy.home.cards.map((c) => (
                 <div
                   key={c.title}
@@ -79,25 +73,22 @@ export default async function Home({
           </div>
 
           <div className="rounded-3xl border border-black/10 bg-white/30 p-3">
-			<div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
-				<Image
-					src="/hero/peacock.jpg"
-					alt="Bird in Sri Lanka"
-					fill
-					priority
-					sizes="(max-width: 768px) 100vw, 50vw"
-					className="object-cover"
-				/>
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
+              <Image
+                src="/hero/peacock.jpg"
+                alt="Bird in Sri Lanka"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-black/0 to-black/0" />
+            </div>
 
-    {/* subtil overlay för “boutique” känsla */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-black/0 to-black/0" />
-  </div>
-
-  <p className="mt-3 px-2 text-sm opacity-70">
-    {/* du kan ta bort denna text helt om du vill */}
-    {copy.home.imageHint}
-  </p>
-</div>
+            <p className="mt-3 px-2 text-sm opacity-70">
+              {copy.home.imageHint}
+            </p>
+          </div>
         </div>
       </section>
     </main>
