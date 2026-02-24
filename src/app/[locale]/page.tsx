@@ -61,7 +61,7 @@ export default async function Home({
 
             {/* Swipe cards on mobile */}
             <div className="mt-10 sm:mt-12">
-              <div className="flex gap-3 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-3 sm:overflow-visible">
+             <div className="flex gap-3 overflow-x-auto pb-2 sm:grid sm:grid-cols-3 sm:overflow-visible">
                 {copy.home.cards.map((c) => (
                   <div
                     key={c.title}
