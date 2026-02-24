@@ -8,10 +8,10 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function SiteHeader({ locale }: { locale: Locale }) {
   const copy = t(locale);
-  const [showSubnav, setShowSubnav] = useState(false);
+  const [showMobileSubnav, setShowMobileSubnav] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setShowSubnav(window.scrollY > 80);
+    const onScroll = () => setShowMobileSubnav(window.scrollY > 80);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -53,15 +53,9 @@ export default function SiteHeader({ locale }: { locale: Locale }) {
             <LanguageSwitcher locale={locale} />
           </nav>
 
-          {/* Mobile controls (ingen meny) */}
-          <div className="flex items-center gap-2 md:hidden">
+          {/* Mobile: endast språk (ingen Be om offert) */}
+          <div className="md:hidden">
             <LanguageSwitcher locale={locale} />
-            <Link
-              href={`/${locale}/contact`}
-              className="rounded-full bg-[#3f4f36] px-4 py-3 text-sm text-white shadow-sm hover:opacity-90 transition select-none touch-manipulation active:scale-[0.98]"
-            >
-              {copy.nav.proposal}
-            </Link>
           </div>
         </div>
 
@@ -69,7 +63,7 @@ export default function SiteHeader({ locale }: { locale: Locale }) {
         <div
           className={[
             "md:hidden overflow-hidden transition-[max-height,opacity,transform] duration-300 ease-out",
-            showSubnav ? "max-h-24 opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-1",
+            showMobileSubnav ? "max-h-24 opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-1",
           ].join(" ")}
         >
           <div className="mt-3 flex gap-2">
