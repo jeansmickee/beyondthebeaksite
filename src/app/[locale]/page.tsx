@@ -15,15 +15,16 @@ export default async function Home({
 
   return (
     <main>
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 py-14 sm:py-20 md:py-28 min-h-[100svh]">
-        <div className="grid gap-10 lg:gap-12 md:grid-cols-2 md:items-center">
-          <div className="text-center md:text-left">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-16 md:py-28 min-h-[100svh]">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+          {/* Text */}
+          <div className="text-center lg:text-left">
             <p className="text-xs uppercase tracking-[0.25em] opacity-60">
               {copy.home.metaLine}
             </p>
 
             <div className="mt-7 text-[#2F3E1F]">
-              <h1 className="font-serif uppercase leading-[0.95]">
+              <h1 className="font-serif uppercase leading-[0.92]">
                 <span className="block tracking-[0.02em] text-[clamp(44px,7vw,76px)]">
                   Beyond
                 </span>
@@ -37,41 +38,45 @@ export default async function Home({
               </p>
             </div>
 
-            <p className="font-serif mt-6 text-[16px] leading-7 sm:text-[17px] sm:leading-7 opacity-80 max-w-xl mx-auto md:mx-0">
+            <p className="font-serif mt-6 text-[16px] leading-7 sm:text-[17px] opacity-80 max-w-xl mx-auto lg:mx-0">
               {copy.home.intro}
             </p>
 
-            {/* CTA: stora touch targets, full bredd på mobil */}
-            <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-xl mx-auto md:mx-0">
+            {/* CTA */}
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl mx-auto lg:mx-0">
               <Link
                 href={`/${locale}/contact`}
-                className="inline-flex items-center justify-center rounded-full bg-[#3f4f36] px-7 py-4 text-white text-base tracking-wide hover:opacity-90 transition shadow-sm select-none touch-manipulation active:scale-[0.98]"
+                className="inline-flex items-center justify-center rounded-2xl bg-[#3f4f36] px-7 py-4 text-white text-base shadow-sm hover:opacity-90 transition select-none touch-manipulation active:scale-[0.98]"
               >
                 {copy.home.cta1}
               </Link>
 
               <Link
                 href={`/${locale}/journeys`}
-                className="inline-flex items-center justify-center rounded-full border border-black/20 px-7 py-4 text-base hover:bg-black/5 transition select-none touch-manipulation active:scale-[0.98]"
+                className="inline-flex items-center justify-center rounded-2xl border border-black/20 bg-white/30 px-7 py-4 text-base hover:bg-black/5 transition select-none touch-manipulation active:scale-[0.98]"
               >
                 {copy.home.cta2}
               </Link>
             </div>
 
-            {/* Cards: inte 3 kolumner på mobil (blir för trångt) */}
-            <div className="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-sm max-w-xl mx-auto md:mx-0">
-              {copy.home.cards.map((c) => (
-                <div
-                  key={c.title}
-                  className="rounded-2xl border border-black/10 bg-white/30 p-4"
-                >
-                  <div className="font-semibold">{c.title}</div>
-                  <div className="opacity-75">{c.sub}</div>
-                </div>
-              ))}
+            {/* Swipe cards on mobile */}
+            <div className="mt-10 sm:mt-12">
+              <div className="flex gap-3 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-3 sm:overflow-visible">
+                {copy.home.cards.map((c) => (
+                  <div
+                    key={c.title}
+                    className="min-w-[240px] sm:min-w-0 rounded-2xl border border-black/10 bg-white/35 p-4"
+                  >
+                    <div className="font-semibold">{c.title}</div>
+                    <div className="opacity-75">{c.sub}</div>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-2 text-xs opacity-60 sm:hidden">Swipe for more</p>
             </div>
           </div>
 
+          {/* Image */}
           <div className="rounded-3xl border border-black/10 bg-white/30 p-3">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
               <Image
@@ -82,7 +87,7 @@ export default async function Home({
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-black/0 to-black/0" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/0 to-black/0" />
             </div>
 
             <p className="mt-3 px-2 text-sm opacity-70">
