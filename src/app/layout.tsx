@@ -5,9 +5,18 @@ import { EB_Garamond, Inter } from "next/font/google";
 const serif = EB_Garamond({ subsets: ["latin"], variable: "--font-serif" });
 const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
+
+
 export const metadata: Metadata = {
   title: "Beyond the Beak",
   description: "Journeys for the curious and kind.",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

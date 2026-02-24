@@ -36,3 +36,5 @@ body {
     #f6f2ea 100%
   );
 }
+
+html, body { overflow-x: hidden; }
