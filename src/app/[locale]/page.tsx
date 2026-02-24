@@ -15,8 +15,8 @@ export default async function Home({
 
   return (
     <main>
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 py-12 overflow-x-hidden">
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+      <section className="mx-auto w-full max-w-6xl px-4 sm:px-6 py-16 sm:py-20 md:py-28 overflow-hidden">
+        <div className="grid gap-12 md:grid-cols-2 md:items-center w-full">
           {/* Text */}
           <div className="text-center lg:text-left">
             <p className="text-xs uppercase tracking-[0.25em] opacity-60">
@@ -78,15 +78,18 @@ export default async function Home({
 
           {/* Image */}
           <div className="rounded-3xl border border-black/10 bg-white/30 p-3">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl">
-              <Image
-                src="/hero/peacock.jpg"
-                alt="Bird in Sri Lanka"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-              />
+            <div className="relative w-full overflow-hidden rounded-2xl">
+				<div className="relative w-full aspect-[4/3]">
+					<Image
+						src="/hero/peacock.jpg"
+						alt="Bird in Sri Lanka"
+						fill
+						priority
+						sizes="(max-width: 768px) 100vw, 50vw"
+						className="object-cover"
+					/>
+				</div>	
+			  
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/0 to-black/0" />
             </div>
 
